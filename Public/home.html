@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseWave - Home</title>
+    <link rel="icon" href="faviconImage.ico" type="image">
+    <link rel="stylesheet" href="output.css">
+</head>
+<body >
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <button id="side-toggle">
+                <svg class="w-6 h-6 text-gray-700 mr-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <a href="home.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="/images/logo.jpg" class="h-8" alt="CourseWave Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CourseWave</span>
+            </a>
+
+            <button class="md:hidden" id="navbar-toggle">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+    
+            <div class="items-center md:m-auto justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="home.html" id="homeHeading" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                    </li>
+                    <li class="relative group">
+                        <a id="courseHeading" class="block py-2 px-3 md:p-0 text-gray-900 rounded md:hover:bg-transparent hover:cursor-pointer md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onclick="courseClick()">Course <span class="ml-1 float-right">&#9662;</span></a>
+                        <ul id="course" class="absolute hidden mt-2 space-y-2 bg-white border rounded-md shadow-md z-10">
+                          <li><a onclick="coursePF()" id="coursePFClick" class="block hover:cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100">PF</a></li>
+                          <li><a onclick="courseOOP()" id="courseOOPClick" class="block hover:cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100">OOP</a></li>
+                          <li><a onclick="courseDS()" id="courseDSClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DS</a></li>
+                          <li><a onclick="courseDB()" id="courseDBClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DB</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative group">
+                        <a id="quizHeading" class="block py-2 px-3 md:p-0 text-gray-900 rounded md:hover:bg-transparent hover:cursor-pointer md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onclick="quizClick()"> Quiz <span class="ml-1 float-right">&#9662;</span></a>
+                        <ul id="quiz" class="absolute hidden mt-2 space-y-2 bg-white border rounded-md shadow-md z-10">
+                          <li><a onclick="quizPF()" id="quizPFClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">PF</a></li>
+                          <li><a onclick="quizOOP()" id="quizOOPClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">OOP</a></li>
+                          <li><a onclick="quizDS()" id="quizDSClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DS</a></li>
+                          <li><a onclick="quizDB()" id="quizDBClick" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DB</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about.html"
+                            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <div class="bg-gray-900">
+            <div id="sidebar">
+                <ul class=" text-white p-4 hidden" id="sidebar-menu">
+                    <li class="relative group mb-5">
+                        <a id="courseHeading1" class="block py-2 px-4 w-20 md:p-0 text-gray-900 rounded md:hover:bg-transparent hover:cursor-pointer md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onclick="courseClickSide()">Course <span class="ml-1">&#9662;</span></a>
+                        <ul id="courseSide" class="absolute hidden mt-2 space-y-2 bg-white border rounded-md shadow-md z-10">
+                          <li><a onclick="coursePF()" id="coursePFClick1" class="block hover:cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100">PF</a></li>
+                          <li><a onclick="courseOOP()" id="courseOOPClick1" class="block hover:cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100">OOP</a></li>
+                          <li><a onclick="courseDS()" id="courseDSClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DS</a></li>
+                          <li><a onclick="courseDB()" id="courseDBClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DB</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative group">
+                        <a id="quizHeading1" class="block py-2 px-3 md:p-0 text-gray-900 rounded md:hover:bg-transparent hover:cursor-pointer md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" onclick="quizClickSide()"> Quiz <span class="ml-1">&#9662;</span></a>
+                        <ul id="quizSide" class="absolute hidden mt-2 space-y-2 bg-white border rounded-md shadow-md z-10">
+                          <li><a onclick="quizPF()" id="quizPFClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">PF</a></li>
+                          <li><a onclick="quizOOP()" id="quizOOPClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">OOP</a></li>
+                          <li><a onclick="quizDS()" id="quizDSClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DS</a></li>
+                          <li><a onclick="quizDB()" id="quizDBClick1" class="block px-4 hover:cursor-pointer py-2 text-gray-700 hover:bg-gray-100">DB</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container min-h-screen w-full overflow-hidden">
+            <!-- Welcome CourseWave Heading -->
+            <div id="welcomeHeading" class="text-gray-900 py-10">
+                <div class="container mx-auto text-center">
+                  <h1 class="ssm:text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold">Welcome to CourseWave</h1>
+                  <p class="mt-4 ssm:text-lg sm:text-lg md:text-2xl lg:text-2xl">Your Gateway to Lifelong Learning</p>
+                </div>
+            </div>
+        
+            <!-- Feature Courses -->
+            <section id="featureCourses" class="container mx-auto my-8 p-6 bg-white shadow-md rounded-md">
+                <h2 class="ssm:text-1xl sm:text-1xl md:text-2xl text-center font-bold mb-4">Featured Courses</h2>
+        
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div class="bg-gray-100 p-4 rounded-md">
+                    <a onclick="featurePF()" class="hover:cursor-pointer">
+                        <img src="https://www.filepicker.io/api/file/1wXHHJltRWCGhKy9ud85" alt="Programming Fundamentals Image" class="w-full h-32 object-cover mb-4 rounded-md">
+                        <h3 class="text-lg font-bold mb-2">Programming Fundamentals</h3>
+                        <p class="text-gray-700">Master the building blocks of coding and lay the foundation for a strong programming skill set. Dive into essential concepts such as variables, loops, conditionals, and functions with hands-on exercises guided by expert instructors.</p>
+                    </a>
+                  </div>
+            
+                  <div class="bg-gray-100 p-4 rounded-md">
+                    <a onclick="featureOOP()" class="hover:cursor-pointer">
+                        <img src="https://www.masaischool.com/blog/content/images/2023/03/Object-oriented-programming-blog.png" alt="Object Oriented Programming Image" class="w-full h-32 object-cover mb-4 rounded-md">
+                        <h3 class="text-lg font-bold mb-2">Object Oriented Programming</h3>
+                        <p class="text-gray-700">Take your coding skills to the next level with Object-Oriented Programming. Learn the principles of encapsulation, inheritance, and polymorphism to design efficient and scalable software. Engage in practical exercises to solidify your understanding.</p>
+                    </a>
+                </div>
+            
+                  <div class="bg-gray-100 p-4 rounded-md">
+                    <a onclick="featureDS()" class="hover:cursor-pointer">
+                        <img src="https://miro.medium.com/v2/resize:fit:1358/1*4ZcW5tSdizlbtDQyVpRTuA.jpeg" alt="Data Structures Image" class="w-full h-32 object-cover mb-4 rounded-md">
+                        <h3 class="text-lg font-bold mb-2">Data Structures</h3>
+                        <p class="text-gray-700">Explore the intricacies of organizing and storing data effectively. Our Data Structures course equips you with the knowledge of fundamental data structures like arrays, linked lists, and trees. Enhance your problem-solving skills through hands-on coding challenges.</p>
+                    </a>
+                </div>
+        
+                </div>
+              </section>
+            
+            <!-- PF Course -->
+            <div id="PFHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                  <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Programming Fundametals</h1>
+                  <p class="text-gray-700 ms-10 me-10">Master the building blocks of coding and lay the foundation for a strong programming skill set. Dive into essential concepts such as variables, loops, conditionals, and functions with hands-on exercises guided by expert instructors.</p>
+                </div>
+            </div>
+        
+            <div id="videoSectionPF" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                  <h2 id="lectureCountPF" class="text-2xl font-serif font-bold mb-4">Lecture 1</h2>
+                  <div id="videoContainerPF" class="flex justify-center items-center space-x-4">
+                    <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                  <div class="mt-4 flex justify-center">
+                    <button id="prevBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevVideoPF()">Previous</button>
+                    <button id="nextBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md" onclick="showNextVideoPF()">Next</button>
+                  </div>
+                </div>
+            </div>
+        
+            <!-- OOP Course -->
+            <div id="OOPHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Object Oriented Programming</h1>
+                    <p class="text-gray-700 ms-10 me-10">Take your coding skills to the next level with Object-Oriented Programming. Learn the principles of encapsulation, inheritance, and polymorphism to design efficient and scalable software. Engage in practical exercises to solidify your understanding.</p>
+                  </div>
+            </div>
+        
+            <div id="videoSectionOOP" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <h2 id="lectureCountOOP" class="text-2xl font-serif font-bold mb-4">Lecture 1</h2>
+                    <div id="videoContainerOOP" class="flex justify-center items-center space-x-4">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevVideoOOP()">Previous</button>
+                      <button id="nextBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md" onclick="showNextVideoOOP()">Next</button>
+                    </div>
+                  </div>
+            </div>
+        
+            <!-- DS Course -->
+            <div id="DSHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                  <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Data Structures</h1>
+                  <p class="text-gray-700 ms-10 me-10">Explore the intricacies of organizing and storing data effectively. Our Data Structures course equips you with the knowledge of fundamental data structures like arrays, linked lists, and trees. Enhance your problem-solving skills through hands-on coding challenges.</p>
+                </div>
+            </div>
+        
+            <div id="videoSectionDS" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <h2 id="lectureCountDS" class="text-2xl font-serif font-bold mb-4">Lecture 1</h2>
+                    <div id="videoContainerDS" class="flex justify-center items-center space-x-4">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevVideoDS()">Previous</button>
+                      <button id="nextBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md" onclick="showNextVideoDS()">Next</button>
+                    </div>
+                  </div>
+            </div>
+        
+            <!-- DB Course -->
+            <div id="DBHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Database Systems</h1>
+                    <p class="text-gray-700 ms-10 me-10">Explore the intricacies of organizing and managing data effectively. Our Database Systems course equips you with the knowledge of database design, SQL querying, and database management. Enhance your skills through practical hands-on projects and real-world scenarios guided by experienced instructors.</p>
+                </div>
+            </div>
+        
+            <div id="videoSectionDB" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <h2 id="lectureCountDB" class="text-2xl font-serif font-bold mb-4">Lecture 1</h2>
+                    <div id="videoContainerDB" class="flex justify-center items-center space-x-4">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevVideoDB()">Previous</button>
+                      <button id="nextBtn" class="px-4 py-2 bg-gray-900 text-white rounded-md" onclick="showNextVideoDB()">Next</button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- PF Quiz -->
+            <div id="PFQuizHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Programming Fundamentals Quiz</h1>
+                </div>
+            </div>
+            <div id="quizSectionPF" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <div id="loaderPF" class="invisible fixed top-0 left-0 w-full h-full bg-opacity-75 bg-gray-700 flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+                    </div>                    
+                    <div id="timer" class="text-lg text-gray-700 mt-4 mb-4">Time Remaining: <span id="timePF">03:00</span></div>
+                    <h2 id="quizCountPF" class="text-2xl font-serif font-bold mb-4">Question 1</h2>
+                    <div id="quizContainerPF" class="flex justify-center items-center space-x-4">
+                        <div class="mb-4">
+                            <p id="questionMcqPF" class="font-bold font-serif"></p>
+                            <input type="radio" id="choice1PF" name="quiz" class="mr-2">
+                            <label for="choice1PF" id="choice1labelPF"></label><br>
+                            <input type="radio" id="choice2PF" name="quiz" class="mr-2">
+                            <label for="choice2PF" id="choice2labelPF"></label>
+                        </div>                
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtnquiz" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevQuizPF()">Previous</button>
+                      <button id="nextBtnquizPF" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showNextQuizPF()">Next</button>
+                      <button id="submitBtnquizPF" class="px-4 py-2 bg-gray-900 text-white rounded-md hidden" onclick="submitQuizPF()">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="PFQuizResult" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="resultHeading" class="text-4xl font-serif font-bold mb-4 uppercase">Result</h1>
+                    <p id="resultScorePF" class="text-2xl font-serif font-bold mb-4"></p>
+                </div>
+            </div>
+        
+            <!-- OOP Quiz -->
+            <div id="OOPQuizHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Object Oriented Programming Quiz</h1>
+                </div>
+            </div>
+            <div id="quizSectionOOP" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <div id="loaderOOP" class="invisible fixed top-0 left-0 w-full h-full bg-opacity-75 bg-gray-700 flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+                    </div>                    
+                    <div id="timer" class="text-lg text-gray-700 mt-4 mb-4">Time Remaining: <span id="timeOOP">03:00</span></div>
+                    <h2 id="quizCountOOP" class="text-2xl font-serif font-bold mb-4">Question 1</h2>
+                    <div id="quizContainerOOP" class="flex justify-center items-center space-x-4">
+                        <div class="mb-4">
+                            <p id="questionMcqOOP" class="font-bold font-serif"></p>
+                            <input type="radio" id="choice1OOP" name="quiz" class="mr-2">
+                            <label for="choice1OOP" id="choice3labelOOP"></label><br>
+                            <input type="radio" id="choice2OOP" name="quiz" class="mr-2">
+                            <label for="choice2OOP" id="choice4labelOOP"></label>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtnquiz" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevQuizOOP()">Previous</button>
+                      <button id="nextBtnquizOOP" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showNextQuizOOP()">Next</button>
+                      <button id="submitBtnquizOOP" class="px-4 py-2 bg-gray-900 text-white rounded-md hidden" onclick="submitQuizOOP()">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="OOPQuizResult" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="resultHeading" class="text-4xl font-serif font-bold mb-4 uppercase">Result</h1>
+                    <p id="resultScoreOOP" class="text-2xl font-serif font-bold mb-4"></p>
+                </div>
+            </div>
+        
+            <!-- DS Quiz -->
+            <div id="DSQuizHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Data Structures Quiz</h1>
+                </div>
+            </div>
+            <div id="quizSectionDS" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <div id="loaderDS" class="invisible fixed top-0 left-0 w-full h-full bg-opacity-75 bg-gray-700 flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+                    </div>
+                    <div id="timer" class="text-lg text-gray-700 mt-4 mb-4">Time Remaining: <span id="timeDS">03:00</span></div>
+                    <h2 id="quizCountDS" class="text-2xl font-serif font-bold mb-4">Question 1</h2>
+                    <div id="quizContainerDS" class="flex justify-center items-center space-x-4">
+                        <div class="mb-4">
+                            <p id="questionMcqDS" class="font-bold font-serif"></p>
+                            <input type="radio" id="choice1DS" name="quiz" class="mr-2">
+                            <label for="choice1DS" id="choice5labelDS"></label><br>
+                            <input type="radio" id="choice2DS" name="quiz" class="mr-2">
+                            <label for="choice2DS" id="choice6labelDS"></label>
+                        </div>                
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtnquiz" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevQuizDS()">Previous</button>
+                      <button id="nextBtnquizDS" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showNextQuizDS()">Next</button>
+                      <button id="submitBtnquizDS" class="px-4 py-2 bg-gray-900 text-white rounded-md hidden" onclick="submitQuizDS()">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="DSQuizResult" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="resultHeading" class="text-4xl font-serif font-bold mb-4 uppercase">Result</h1>
+                    <p id="resultScoreDS" class="text-2xl font-serif font-bold mb-4"></p>
+                </div>
+            </div>
+        
+            <!-- DB Quiz -->
+            <div id="DBQuizHeading" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="courseNameHeading" class="text-4xl font-serif font-bold mb-4">Database Systems Quiz</h1>
+                </div>
+            </div>
+            <div id="quizSectionDB" class="text-gray-900 mt-10 mb-8 hidden">
+                <div class="container mx-auto text-center">
+                    <div id="loaderDB" class="invisible fixed top-0 left-0 w-full h-full bg-opacity-75 bg-gray-700 flex justify-center items-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+                    </div>
+                    <div id="timer" class="text-lg text-gray-700 mt-4 mb-4">Time Remaining: <span id="timeDB">03:00</span></div>
+                    <h2 id="quizCountDB" class="text-2xl font-serif font-bold mb-4">Question 1</h2>
+                    <div id="quizContainerDB" class="flex justify-center items-center space-x-4">
+                        <div class="mb-4">
+                            <p id="questionMcqDB" class="font-bold font-serif"></p>
+                            <input type="radio" id="choice1DB" name="quiz" class="mr-2">
+                            <label for="choice1DB" id="choice7labelDB"></label><br>
+                            <input type="radio" id="choice2DB" name="quiz" class="mr-2">
+                            <label for="choice2DB" id="choice8labelDB"></label>
+                        </div>                
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                      <button id="prevBtnquiz" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showPrevQuizDB()">Previous</button>
+                      <button id="nextBtnquizDB" class="px-4 py-2 bg-gray-900 text-white rounded-md mr-2" onclick="showNextQuizDB()">Next</button>
+                      <button id="submitBtnquizDB" class="px-4 py-2 bg-gray-900 text-white rounded-md hidden" onclick="submitQuizDB()">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="DBQuizResult" class="text-gray-900 mt-10 hidden">
+                <div class="container mx-auto text-center">
+                    <h1 id="resultHeading" class="text-4xl font-serif font-bold mb-4 uppercase">Result</h1>
+                    <p id="resultScoreDB" class="text-2xl font-serif font-bold mb-4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
